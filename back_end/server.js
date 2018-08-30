@@ -11,13 +11,15 @@ server.use(express.static('client/build'));
 server.use(parser.urlencoded({extended: true}));
 server.use(cors());
 
+const url = "mongodb://user:password1@ds139722.mlab.com:39722/reactufc" || "mongodb://localhost:27017";
+
 // Connect to the database
-MongoClient.connect('mongodb://localhost:27017', function(err, client){
+MongoClient.connect(url, function(err, client){
   if(err){
     console.log(err);
     return;
   }
-  const db = client.db('fighters');
+  const db = client.db('reactufc');
   console.log('Connected to database');
 
   // Show all fighters
@@ -101,7 +103,7 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client){
         res.status(500);
         res.send();
       }
-      
+
       res.status(200);
       res.json(allTeams);
 
@@ -138,8 +140,9 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client){
     })
   })
 
+// const port = process.env.PORT || 3001;
 
-  server.listen(3001, function(){
+  server.listen(process.env.PORT || 3001, function(){
     console.log("Listening on port 3001");
   })
 })
