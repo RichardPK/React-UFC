@@ -4,7 +4,7 @@
 
 
 <br>
-Fan UFC is a UFC fantasy-team building React web app using data from UFC's API. Dynamically search and
+Fan UFC is a UFC fantasy-team building React web app using data from [UFC's API](http://ufc-data-api.ufc.com/api/v3/iphone/1/). Dynamically search and
 filter 700+ active fighters, view their detailed stats, previous fight locations and build a fantasy team. Final group
 project at CodeClan, Glasgow.
 <br>
